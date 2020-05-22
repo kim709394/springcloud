@@ -8,5 +8,33 @@
     <artifactId>springcloud</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <!--指定字符编码和jdk编译版本-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring.cloud.dependencies.version>Finchley.SR1</spring.cloud.dependencies.version>
+        <spring.boot.version>2.0.4.RELEASE</spring.boot.version>
+    </properties>
+
+    <dependencyManagement>
+
+        <dependencies>
+            <!--springboot版本控制-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.0.4.RELEASE</version>
+            </dependency>
+            <!--springcloud相关依赖包版本使用Finchley.SR1-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
