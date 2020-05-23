@@ -19,6 +19,7 @@
         <module>springcloud-ribbon</module>
         <module>springcloud-hystrix</module>
         <module>springcloud-hystrix-dashboard</module>
+        <module>springcloud-feign-hystrix</module>
 
     </modules>
 
