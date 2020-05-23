@@ -1,0 +1,42 @@
+server:
+  port: 7900
+
+spring:
+  application:
+    name: springcloud-ribbon
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream,health,info,refresh   #配置健康检查包括的视图
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true     #允许健康检查
+    serviceUrl:
+      defaultZone: http://root:root@localhost:8765/eureka   #注册到eureka服务端的地址
+  instance:
+    prefer-ip-address: true      #允许使用ip访问，默认使用主机名访问
+    #自定义注册到eureka的服务实例名字：应用名：ip：实例端口号
+    instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${spring.application.instance_id:${server.port}}
+    lease-renewal-interval-in-seconds: 5 #心跳时间间隔，单位：秒，默认30秒
+    lease-expiration-duration-in-seconds: 20  #心跳到期时间，单位秒，默认90秒
+    metadata-map:
+      zone: ABC      # eureka可以理解的元数据
+      king: BBC  # 不会影响客户端行为
+
+
+#为具体的服务指定不同的负载均衡算法规则，算法规则优先级：配置文件配置>java代码>默认配置
+springcloud-feign-comsumer:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule  #为springcloud-feign-comsumer服务的算法配置为随机
+
+
+#使ribbon脱离eureka来调用接口
+#ribbon:
+  #eureka:
+    #enabled: false
+#springcloud-feign-comsumer:
+  #ribbon:
+    #listOfServers: localhost:7700   #配置调用springcloud-feign-comsumer服务的时候只调取7300端口的实例

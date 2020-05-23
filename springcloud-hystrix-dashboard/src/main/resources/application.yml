@@ -1,0 +1,13 @@
+server:
+  port: 8600
+
+spring:
+  application:
+    name: springcloud-hystrix-dashboard
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+

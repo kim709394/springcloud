@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: springcloud-eureka-server   #应用名
+  security:
+    user:
+      name: root    #设置用户名为root
+      password: root    #设置密码为root
+
+server:
+  port: 8765    #默认端口号
+
+eureka:
+  server:
+    enable-self-preservation: false   #是否开启自我保护，可以及时刷新服务实例状态，false为关闭
+    eviction-interval-timer-in-ms: 4000  #清理服务节点时间间隔，单位毫秒
+  client:
+    register-with-eureka: false   #是否强制和别的eureka注册中心整合，一般设置成false
+    fetch-registry: false    #是否强制和别的eureka注册中心整合，一般设置成false
+    service-url:
+      defaultZone: http://root:root@localhost:8765/eureka
+  dashboard:
+    enabled:  true #是否允许访问eureka的首页，默认是true
+    path: /   #配置访问eureka首页的路径，默认是/
+  environment: dev   #eureka首页左上角的environment字样
+  datacenter: microservice  #eureka首页左上角的datacenter字样

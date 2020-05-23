@@ -9,13 +9,16 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>eureka-server</module>
-        <module>eureka-client</module>
-        <module>config-server</module>
-        <module>eureka-server-cloud</module>
-        <module>feign-provider</module>
-        <module>feign-comsumer</module>
-        <module>config-server-client</module>
+        <module>springcloud-eureka-server</module>
+        <module>springcloud-eureka-client</module>
+        <module>springcloud-config-server</module>
+        <module>springcloud-eureka-server-cloud</module>
+        <module>springcloud-feign-provider</module>
+        <module>springcloud-feign-comsumer</module>
+        <module>springcloud-config-server-client</module>
+        <module>springcloud-ribbon</module>
+        <module>springcloud-hystrix</module>
+        <module>springcloud-hystrix-dashboard</module>
 
     </modules>
 
