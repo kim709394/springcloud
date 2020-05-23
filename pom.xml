@@ -13,6 +13,10 @@
         <module>eureka-client</module>
         <module>config-server</module>
         <module>eureka-server-cloud</module>
+        <module>feign-provider</module>
+        <module>feign-comsumer</module>
+        <module>config-server-client</module>
+
     </modules>
 
     <properties>

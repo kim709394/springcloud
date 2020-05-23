@@ -1,23 +1,21 @@
 spring:
   application:
-    name: eureka-server   #应用名
+    name: eureka-server-cloud-ins2
   security:
     user:
       name: root    #设置用户名为root
       password: root    #设置密码为root
-
 server:
-  port: 8765    #默认端口号
+  port: 8762
 
 eureka:
-  server:
-    enable-self-preservation: false   #是否开启自我保护，可以及时刷新服务实例状态，false为关闭
-    eviction-interval-timer-in-ms: 4000  #清理服务节点时间间隔，单位毫秒
+  instance:
+    hostname: peer2     #eureka-server实例名称
   client:
     register-with-eureka: false   #是否强制和别的eureka注册中心整合，一般设置成false
     fetch-registry: false    #是否强制和别的eureka注册中心整合，一般设置成false
-    service-url:
-      defaultZone: http://root:root@localhost:8765/eureka
+    serviceUrl:
+      defaultZone: http://root:root@localhost:8761/eureka/,http://root:root@localhost:8763/eureka/    #与其他eureka-server实例互相注册
   dashboard:
     enabled:  true #是否允许访问eureka的首页，默认是true
     path: /   #配置访问eureka首页的路径，默认是/
