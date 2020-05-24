@@ -1,0 +1,7 @@
+
+#反向代理时url加上前缀:http://localhost:8099/api/springcloud-feign-comsumer/handle
+zuul:
+  prefix: /api
+logging:
+  level:
+    com.netflix: DEBUG

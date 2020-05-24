@@ -12,7 +12,7 @@ import java.util.Map;
  * @description
  * @date 2020/5/23
  */
-@FeignClient(name="springcloud-feign-comsumer",configuration = FeignClientExcludeGlobal.class)
+//@FeignClient(name="springcloud-feign-comsumer",configuration = FeignClientExcludeGlobal.class)
 public interface FeignClientExcludeGlobal {
 
     @GetMapping("/get")

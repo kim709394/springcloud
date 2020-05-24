@@ -1,8 +1,10 @@
 package com.kim.springcloud.feign.provider.controller;
 
+import com.kim.springcloud.feign.provider.builder.FeignBuilder;
 import com.kim.springcloud.feign.provider.feignclient.FeignClientFileUpload;
 import com.kim.springcloud.feign.provider.feignclient.FeignClientFoo;
 import com.kim.springcloud.feign.provider.feignclient.FeignClientWithoutEureka;
+import com.netflix.discovery.converters.Auto;
 import feign.form.ContentType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockMultipartFile;
@@ -13,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,14 +28,17 @@ import java.util.Map;
 @RequestMapping("/feign/provider")
 public class FeignProviderController {
 
-    @Autowired
+    @Autowired(required = false)
     private FeignClientFoo clientFoo;
 
-    @Autowired
+    @Autowired(required = false)
     private FeignClientWithoutEureka clientWithoutEureka;
 
-    @Autowired
+    @Autowired(required = false)
     private FeignClientFileUpload clientFileUpload;
+
+    @Autowired(required = false)
+    private FeignBuilder feignBuilder;
 
     @GetMapping("/clientFoo")
     public String clientFoo(){
@@ -61,4 +67,15 @@ public class FeignProviderController {
         System.out.println(upload);
         return "clientFileUpload测试";
     }
+
+
+    @GetMapping("/feign/builder")
+    public String feignBuilder() throws Exception {
+        File file=new File("d:/test1/jpg");
+        MultipartFile multipartFile = new MockMultipartFile("test1.jpg","test1.jpg", ContentType.MULTIPART.toString(),new FileInputStream(file));
+        FeignClientFileUpload build = feignBuilder.build(FeignClientFileUpload.class, "http://localohst:7700/feign/comsumer/upload");
+        String upload = build.upload(multipartFile);
+        return upload;
+    }
+
 }

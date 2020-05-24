@@ -20,6 +20,9 @@
         <module>springcloud-hystrix</module>
         <module>springcloud-hystrix-dashboard</module>
         <module>springcloud-feign-hystrix</module>
+        <module>springcloud-turbine</module>
+        <module>springcloud-sidecar</module>
+        <module>springcloud-zuul</module>
 
     </modules>
 

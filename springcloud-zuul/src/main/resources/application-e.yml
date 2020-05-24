@@ -1,0 +1,11 @@
+
+#这种方式反向代理feign-comsumer服务将放弃eureka自带的ribbon
+#而使用zuul自带的ribbon对已配置的url进行负载均衡的请求
+zuul:
+  routes:
+    abc:
+      path: /feign-comsumer/**
+      service-id: springcloud-feign-comsumer
+ribbon:
+  eureka:
+    enabled: false

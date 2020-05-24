@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @date 2020/5/23
  */
 
-@FeignClient(name="springcloud-feign-comsumer",configuration = FeignConfig.class)
+//@FeignClient(name="springcloud-feign-comsumer",configuration = FeignConfig.class)
 public interface FeignClientFileUpload {
 
     @PostMapping(value = "/feign/comsumer/upload",consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
