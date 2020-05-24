@@ -23,6 +23,7 @@
         <module>springcloud-turbine</module>
         <module>springcloud-sidecar</module>
         <module>springcloud-zuul</module>
+        <module>springcloud-zuul-regexp</module>
 
     </modules>
 
