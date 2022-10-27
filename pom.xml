@@ -25,6 +25,7 @@
         <module>springcloud-zuul</module>
         <module>springcloud-zuul-regexp</module>
         <module>springcloud-actuator</module>
+        <module>springcloud-admin-server</module>
 
     </modules>
 
@@ -35,6 +36,8 @@
         <java.version>1.8</java.version>
         <spring.cloud.dependencies.version>Hoxton.SR3</spring.cloud.dependencies.version>
         <spring.boot.version>2.2.2.RELEASE</spring.boot.version>
+        <spring.boot.admin.server.version>2.2.4</spring.boot.admin.server.version>
+        <spring.boot.admin.client.version>2.2.4</spring.boot.admin.client.version>
     </properties>
 
     <dependencyManagement>
@@ -55,6 +58,18 @@
                 <version>${spring.cloud.dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <!--admin server-->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-server</artifactId>
+                <version>${spring.boot.admin.server.version}</version>
+            </dependency>
+            <!--admin client-->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>${spring.boot.admin.client.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

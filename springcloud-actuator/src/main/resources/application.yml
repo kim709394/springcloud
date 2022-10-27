@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: springcloud-actuator
+  boot:   #配置注册到admin
+    admin:
+      client:
+        url: http://127.0.0.1:7100
+        instance:
+          prefer-ip: true   #使用ip注册
+        username: root
+        password: root
+
+server:
+  port: 7000
+
+# actuator健康检查配置
+management:
+  endpoints:
+    web:
+      base-path: /actuator    #根路径
+      exposure:
+        include: "*"  #监控所有信息
+  endpoint:
+    health:
+      show-details: always    # 展示所有细节
+    shutdown:
+      enabled: true   # 允许关闭应用程序
