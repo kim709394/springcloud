@@ -24,6 +24,7 @@
         <module>springcloud-sidecar</module>
         <module>springcloud-zuul</module>
         <module>springcloud-zuul-regexp</module>
+        <module>springcloud-actuator</module>
 
     </modules>
 
