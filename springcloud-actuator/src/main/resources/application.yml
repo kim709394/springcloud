@@ -7,7 +7,10 @@ spring:
         url: http://127.0.0.1:7100
         instance:
           prefer-ip: true   #使用ip注册
-        username: root
+          metadata:
+            user.name: root
+            user.password: root
+        username: root  #admin的登录认证信息
         password: root
 
 server:
