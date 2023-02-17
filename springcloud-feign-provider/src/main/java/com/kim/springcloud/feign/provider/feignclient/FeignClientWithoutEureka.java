@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * 脱离eureka进行rest请求的feign客户端，name不再指在eureka中的服务的名字，只是指定feign客户端的
  * 名字而已。url是请求的地址，完整调用url地址是:url+各Mapping的path,  configuration是配置类，现在进行eureka的请求
  * */
-@FeignClient(name="FeignClientWithoutEureka",url="/feign/comsumer",configuration = FeignConfig.class)
+@FeignClient(name="FeignClientWithoutEureka",url="http://localohst:7700/feign/comsumer",configuration = FeignConfig.class)
 public interface FeignClientWithoutEureka {
 
 
